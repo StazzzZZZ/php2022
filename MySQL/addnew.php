@@ -12,8 +12,8 @@ error_reporting(1);
 
     //$sql = "INSERT INTO users (name, surname) VALUES(\"$name\", \"$surname\")";
 // if(!mysqli_query($con, $sql)){
-    //     die("Error:" . mysqli_error($con));
-    // }
+//         die("Error:" . mysqli_error($con));
+//     }
 
 //second
 $name = $_POST["name"];

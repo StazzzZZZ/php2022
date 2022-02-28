@@ -11,7 +11,7 @@ if($_POST){
             default: addReviews($name, $review);break;
         }
         header('location:reviews.php');
-        
+        //eee
     }
 }else{
     header('location:reviews.php');

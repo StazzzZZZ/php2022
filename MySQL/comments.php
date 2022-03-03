@@ -1,21 +1,11 @@
 <?php
-    include 'connection.php';
+include 'connection.php';
+
+$sql = "SELECT * FROM coment";
+
+$result = mysqli_query($con,$sql);
 
 
-    //var_dump($con);
-
-    $sql = "SELECT * FROM users";
-
-    $result = mysqli_query($con,$sql);
-
-    // if(mysqli_num_rows($result)>0){
-    //     while($row = mysqli_fetch_assoc($result)){
-    //         echo $row["name"] . " " . $row["surname"] . "<br>";
-    //     }
-    // }
-
-
-    // mysqli_close($con);
 ?>
 
 <!DOCTYPE html>
@@ -24,13 +14,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Users</title>
+    <title>Document</title>
 </head>
 <body>
     <style>
-  
- body {
-  background: url(https://html5book.ru/wp-content/uploads/2015/07/background39.png);
+        body {
+  background: #d6eaf8;
 }
 .floating-button {
   text-decoration: none;
@@ -46,17 +35,18 @@
   text-align: center;
   letter-spacing: 3px;
   font-weight: 600;
-  color: #AEA6A5;
+  color: #524f4e;
   background: white;
   box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
   transition: .3s;
 }
 .floating-button:hover {
-  background: #AEA6A5;
+  background: #2EE59D;
   box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
   color: white;
   transform: translateY(-7px);
 }
+
 .rounded-input {
   padding:10px;
   border-radius:10px;
@@ -95,41 +85,42 @@ a {
    font-family: 'Montserrat', sans-serif;
    transition: 0.4s ease-in-out;
 }
-</style>
-    <center>
-        <table border="1" width="50%">
+        </style>
+        <center>
+<tr>
+<table border="1" width="50%">
             <tr>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th>name</th>
+                <th>coment</th>
+                <th>edit</th>
+                <th>delete</th>
             </tr>
             <?php
              if(mysqli_num_rows($result)>0):?>
               <?php  while($row = mysqli_fetch_assoc($result)):?>
 <tr>
     <td><?=$row["name"]?> </td>
-    <td><?=$row["surname"]?> </td>
-    <td><a href="edit.php?id=<?=$row["id"]?>">Edit</a></td>
-    <td><a href="delete.php?id=<?=$row["id"]?>">Delete</a></td>
-</tr>                  
+    <td><?=$row["comm"]?> </td>
+    <td><a  href="e.php?id=<?=$row["id"]?>">Edit</a></td>
+    <td><a href="d.php?id=<?=$row["id"]?>">Delete</a></td>
+</tr>      
 <?php 
 endwhile;
       endif
 ?>    
         </table>
-
-<h2>ADD NEW USER</h2>
-<form action="addnew.php" method="POST">
-<h3>Your name</h3>
-<input type="text" name="name"class="rounded-input ">
-<h3>Your surname</h3>    
-<input type="text" name="surname"class="rounded-input ">
-<br>
-<input type="submit" value="add"class="floating-button">
+        <h2>SEND YOUR COMMENT</h2>
+<form action="a.php" method="POST">
+    <h3>Your name</h3>
+    <input type="text" name="name" class="rounded-input ">
+    <h3>Your comment</h3>
+    <input type="text" name="comm"class="rounded-input ">
+    <br>
+    <input type="submit" value="send"class="floating-button">
 </form>
-<form action="comments.php" method="POST">
-<input type="submit" class="floating-button" value="Add comments">
+<form action="selectdata.php" method="POST">
+ <input type="submit" class="floating-button" value="Back to users">
+
 </form>
 </center>
 </body>

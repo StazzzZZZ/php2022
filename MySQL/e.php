@@ -1,16 +1,19 @@
 <?php 
 if($_GET["id"]){
-    
     include 'connection.php';
-    $userid = $_GET["id"];
-    $sql = "SELECT * FROM users WHERE id = $userid";
-    $result = mysqli_query($con,$sql);
+    
 
+    $userid = $_GET["id"];
+   
+    $sql = "SELECT * FROM coment WHERE id = $userid";
+    
+    $result = mysqli_query($con,$sql);
+}
     if(mysqli_num_rows($result)>0){
         $row = mysqli_fetch_assoc($result);
     }
 
-}
+
 ?>
 
 
@@ -46,18 +49,25 @@ if($_GET["id"]){
 
 
 
-<center>
-<h1>Edit Users</h1>
-<form action="update.php" method="POST">
+
+
+
+
+
+
+
+<center><h1>Edit Users</h1>
+
+<form action="u.php" method="POST">
     <input type="hidden" name="id" value="<?=$row["id"]?>">
-    <input type="text" class="rounded-input "name="name" value= "<?=$row["name"]?>">
-    <input type="text" class="rounded-input "name="surname"value= "<?=$row["surname"]?>">
-    <input type="submit" value="Save"class="floating-button">
+    <input type="text" name="name" class="rounded-input "value= "<?=$row["name"]?>">
+    <input type="text" name="comm"class="rounded-input "value= "<?=$row["comm"]?>">
+    <input type="submit" class="floating-button"value="Save">
 
 </form>
 </center>
 <style> body {
-  background: url(https://html5book.ru/wp-content/uploads/2015/07/background39.png);
+  background: #d6eaf8;
 }
 .floating-button {
   text-decoration: none;

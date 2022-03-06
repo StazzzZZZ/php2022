@@ -12,13 +12,13 @@ if($_POST && $_POST["username"]!="" && $_POST["password"]!=""){
         //echo "Success";
         $_SESSION["user"] = $_POST["username"];
         $_SESSION["logged_in"] = true; 
-        header("Location:site_admin_bootstrap.php");
+        header("Location:page_auth");
     }else{
         //exit("Password is incorrect");
         $_SESSION["user"] ="";
         $_SESSION["logged_in"] = false;
         $_SESSION["error"] = "Wrong username or password";
-        header("auth.php");
+        header("page_don't_auth");
         //session_destroy();
 
     }

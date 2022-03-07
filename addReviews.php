@@ -52,7 +52,7 @@ function onlyReview($name, $review){
     echo fwrite($file,$text);
     fclose($file);
     return true;
-
+    // test
 }
 
 ?>

@@ -24,22 +24,13 @@
             placeholder="Write your login" name="login"id="login"><br>
             <input type="password" class="form-control" 
             placeholder="Write your pass" name="pass"id="pass"><br>
-            <button class="btn btn-success" type="submit">Log in</button>
+            <button class="btn btn-success" type="submit">Log in</button><br>
+            <a href="reg.php">Regestration page</a>
+
         </form>
         <br>
     </div>
-    <div class="col">
-        <h1>Regestration form</h1>
-        <form action="check.php" method="POST">
-            <input type="text" class="form-control" 
-            placeholder="Write your login" name="login"id="login"><br>
-            <input type="text" class="form-control" 
-            placeholder="Write your name" name="name"id="name"><br>
-            <input type="password" class="form-control" 
-            placeholder="Write your pass" name="pass"id="pass"><br>
-            <button class="btn btn-success" type="submit">Register</button>
-        </form>
-    </div>
+  
     <?php else:?>
 Hello <?=$_COOKIE['user']?>. <a href="exit.php">Click here to log out</a></p>
 <?php endif;?>

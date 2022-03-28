@@ -8,6 +8,10 @@ include 'connection.php';
 $name = $_POST["name"];
 $surname = $_POST["surname"];
 $id = $_POST["id"];
+if($name == "" || $surname == ""){
+    return header('location:selectdata.php');
+    //exit();
+}
 
 $stmt = mysqli_prepare($con,"UPDATE users SET name = ?, surname=? WHERE id = $id");
 mysqli_stmt_bind_param($stmt,"ss", $name, $surname);

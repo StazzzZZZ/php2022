@@ -16,6 +16,7 @@ error_reporting(1);
 //     }
 
 //second
+if($_POST["name"]!="" && $_POST["surname"]!=""){
 $name = $_POST["name"];
 $surname = $_POST["surname"];
 
@@ -30,5 +31,9 @@ if(!mysqli_stmt_execute($stmt)){
 
     mysqli_close($con);
     header('location:selectdata.php');
+}else{
+    header('location:selectdata.php');
+
+}
 
     ?>

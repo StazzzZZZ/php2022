@@ -3,6 +3,7 @@ $fname = 'reviews.data';
    $file = fopen($fname,'r');
     $data = explode(";",fread($file,filesize($fname)));
     fclose($file);
+    //test changegi
 ?>
 
 <!DOCTYPE html>
